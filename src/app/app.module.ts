@@ -1,30 +1,44 @@
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {
+  RouterModule,
+  Routes
+} from '@angular/router';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
+/*
+ * Components
+ */
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule } from '@angular/material';
-import { MdInputModule } from '@angular/material';
-import 'hammerjs';
-import { MyInputComponent } from './my-input/my-input.component';
+
+import { CategoriesComponent } from './categories/categories.component';
+import { GamesComponent } from './games/games.component';
+import { QuestionsComponent } from './questions/questions.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: CategoriesComponent },
+  { path: 'games', component: GamesComponent },
+  { path: 'qa', component: QuestionsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyInputComponent
+    GamesComponent,
+    QuestionsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MdButtonModule, 
-    MdCheckboxModule,
-    MdInputModule
+    RouterModule.forRoot(routes) // <-- routes
   ],
-  exports: [
-  	MdButtonModule, 
-  	MdCheckboxModule
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

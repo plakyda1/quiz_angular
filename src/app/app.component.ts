@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MyInputComponent } from './my-input/my-input.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,6 @@ import { MyInputComponent } from './my-input/my-input.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
 }
 

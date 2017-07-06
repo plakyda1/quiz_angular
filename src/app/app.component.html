@@ -1,10 +1,27 @@
-<div class="wrapper"> 
-  <div class="main-content">
-    <header class="header">
-      Header
-    </header>
-  </div>
+<div class="wrapper">
+	<div class="main-content">
+		<header class="header">
+			Header
+		</header>
+		<div>
+			<aside>
+				<nav>
+					<a>Navigation:</a>
+
+
+					<ul>
+						<li><a [routerLink]="['home']">Categories</a></li>
+						<li><a [routerLink]="['games']">Games</a></li>
+						<li><a [routerLink]="['qa']">Questions</a></li>
+					</ul>
+				</nav>
+			</aside>
+			<section class='content-wrap'>
+				<router-outlet></router-outlet>
+			</section>
+		</div>
+	</div>
 </div>
 <footer class="page-footer">
-  Footer
+	Footer
 </footer>
